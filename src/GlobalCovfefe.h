@@ -45,7 +45,7 @@ private:
     void sendir(Stream &stream, char *buf);
 
 protected:
-    void processCommand(Stream &stream, char *buf);
+    virtual void processCommand(Stream &stream, char *buf);
 
     /**
      * Max length on input line.

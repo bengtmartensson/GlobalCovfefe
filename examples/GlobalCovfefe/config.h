@@ -2,12 +2,9 @@
 
 #pragma once
 
-// Define to support sending
-#define TRANSMIT
-
 // Define to support learning with the get_IRN command, using non-demodulating
 // receiver. Preferred over RECEIVE.
-//#define CAPTURE
+#define CAPTURE
 
 // Define to support learning with the get_IRN command, using DEMODULATING
 // receiver (TSOP- etc). Use only if a non-demoodulating receiver is
@@ -54,6 +51,7 @@
 #ifdef CAPTURE
 #define CAPTURESIZE 300U // must be even
 #define CAPTURE_PULLUP false
+#define CAPTURE_BEGINTIMEOUT 10000L // milliseconds
 #define CAPTURE_ENDINGTIMEOUT 100L // milliseconds
 // This quantity is added to all gaps and subtracted from all marks when capturing.
 #define IRSENSOR_MARK_EXCESS -10

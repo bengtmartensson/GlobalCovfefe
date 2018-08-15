@@ -17,7 +17,11 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 #include "config.h"
 
+#ifdef CAPTURE
+#include <GlobalCovfefeCapturer.h>
+#else
 #include <GlobalCovfefe.h>
+#endif
 
 #if defined(ETHERNET_REVISION) & (ETHERNET_REVISION == 2)
 #include <Ethernet2.h>
@@ -27,9 +31,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 #include <IPAddress.h>
 
-#ifdef TRANSMIT
 #include <IrSenderPwm.h>
-#endif
 
 #ifdef CAPTURE
 #ifdef RECEIVE
@@ -39,6 +41,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 #endif // CAPTURE
 
 #ifdef RECEIVE
+#error RECEIVE is not yet implemented.
 #include <IrReceiverSampler.h>
 #endif
 
@@ -86,7 +89,16 @@ void loop() {
 
 void setup() {
     IrSender *irSender = IrSenderPwm::getInstance(true);
+
+#ifdef CAPTURE
+    IrWidget *irWidget = IrWidgetAggregating::newIrWidgetAggregating(CAPTURESIZE,
+            CAPTURE_PULLUP, IRSENSOR_MARK_EXCESS,
+            CAPTURE_BEGINTIMEOUT, CAPTURE_ENDINGTIMEOUT);
+
+    globalCovfefe = new GlobalCovfefeCapturer(irSender, irWidget);
+#else
     globalCovfefe = new GlobalCovfefe(irSender);
+#endif
 
 #ifdef SDCARD_ON_ETHERSHIELD_PIN
     // disable the SD card, as recommended in the doc
