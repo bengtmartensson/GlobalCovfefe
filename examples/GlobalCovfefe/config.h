@@ -11,6 +11,10 @@
 // not available.
 //#define RECEIVE
 
+#define COMMAND_LED     22 //16
+#define LEARN_LED       24 // 17
+#define TRANSMIT_LED    32 // 30
+
 // Issues debug messages on the serial port
 #define SERIAL_DEBUG
 

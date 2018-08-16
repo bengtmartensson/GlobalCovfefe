@@ -17,8 +17,11 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 #include "GlobalCovfefeCapturer.h"
 
-GlobalCovfefeCapturer::GlobalCovfefeCapturer(IrSender *irSender_, IrWidget *irWidget_) : GlobalCovfefe(irSender_),irWidget(irWidget_) {
+GlobalCovfefeCapturer::GlobalCovfefeCapturer(IrSender *irSender_, IrWidget *irWidget_,
+        int commandLed_, int learnLed_, int transmitLed_)
+: GlobalCovfefe(irSender_, commandLed_, transmitLed_),irWidget(irWidget_),learnLed(learnLed_) {
     irWidget->reset();
+    initLed(learnLed);
 }
 
 GlobalCovfefeCapturer::GlobalCovfefeCapturer(const GlobalCovfefeCapturer& orig) : GlobalCovfefe(orig),irWidget(orig.irWidget) {
@@ -36,15 +39,18 @@ void GlobalCovfefeCapturer::processCommand(Stream &stream, char* buf) {
 
 void GlobalCovfefeCapturer::getIRL(Stream &stream) {
     stream.println(F("IR Learner Enabled"));
+    turnOnLed(learnLed);
 
     irWidget->capture();
+    turnOffLed(learnLed);
     if (!irWidget->isEmpty()) {
         stream.print(F("sendir,1:1,1,"));
-        stream.print(irWidget->getFrequency());
+        frequency_t freq = irWidget->getFrequency();
+        stream.print(freq);
         stream.print(",1,1");
         for (unsigned int i = 0; i < irWidget->getDataLength(); i++) {
             stream.print(",");
-            stream.print(irWidget->getDuration(i));
+            stream.print(((uint32_t) irWidget->getDuration(i) * freq)/1000000UL);
         }
         stream.println();
     }

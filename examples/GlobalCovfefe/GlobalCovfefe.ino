@@ -49,6 +49,27 @@ this program. If not, see http://www.gnu.org/licenses/.
 #include <Beacon.h>
 #endif
 
+static const int commandLed =
+#ifdef COMMAND_LED
+        COMMAND_LED;
+#else
+        -1;
+#endif
+
+static const int learnLed =
+#ifdef LEARN_LED
+        LEARN_LED;
+#else
+        -1;
+#endif
+
+static const int transmitLed =
+#ifdef TRANSMIT_LED
+        TRANSMIT_LED;
+#else
+        -1;
+#endif
+
 EthernetServer server(PORT);
 EthernetClient client;
 
@@ -95,9 +116,9 @@ void setup() {
             CAPTURE_PULLUP, IRSENSOR_MARK_EXCESS,
             CAPTURE_BEGINTIMEOUT, CAPTURE_ENDINGTIMEOUT);
 
-    globalCovfefe = new GlobalCovfefeCapturer(irSender, irWidget);
+    globalCovfefe = new GlobalCovfefeCapturer(irSender, irWidget, commandLed, learnLed, transmitLed);
 #else
-    globalCovfefe = new GlobalCovfefe(irSender);
+    globalCovfefe = new GlobalCovfefe(irSender, commandLed, transmitLed);
 #endif
 
 #ifdef SDCARD_ON_ETHERSHIELD_PIN

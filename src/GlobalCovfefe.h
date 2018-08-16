@@ -21,7 +21,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 class GlobalCovfefe {
 public:
-    GlobalCovfefe(IrSender *irSender);
+    GlobalCovfefe(IrSender *irSender, int commandLed = invalidPin, int transmitLed = invalidPin);
     GlobalCovfefe(const GlobalCovfefe& orig);
     virtual ~GlobalCovfefe();
 
@@ -35,10 +35,19 @@ public:
     /**
      * GlobalCache uses CR as line terminator. Period.
      */
-    static const char eolChar;
+    static const char eolChar = '\r';
+
+    static const int invalidPin = -1;
+
+    /**
+     * Max length on input line.
+     */
+    static const size_t bufSize = 300U;
 
 private:
     IrSender *irSender;
+    int commandLed;
+    int transmitLed;
 
     void getdevices(Stream &stream);
     void getversion(Stream &stream);
@@ -46,9 +55,7 @@ private:
 
 protected:
     virtual void processCommand(Stream &stream, char *buf);
-
-    /**
-     * Max length on input line.
-     */
-    static const size_t bufSize;
+    void initLed(int pin);
+    void turnOnLed(int pin);
+    void turnOffLed(int pin);
 };

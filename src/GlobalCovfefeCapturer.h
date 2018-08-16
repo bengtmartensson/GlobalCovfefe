@@ -22,7 +22,8 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 class GlobalCovfefeCapturer : public GlobalCovfefe {
 public:
-    GlobalCovfefeCapturer(IrSender *irSender, IrWidget *irWidget);
+    GlobalCovfefeCapturer(IrSender *irSender, IrWidget *irWidget,
+            int commandLed = invalidPin, int learnLed = invalidPin, int transmitLed = invalidPin);
     GlobalCovfefeCapturer(const GlobalCovfefeCapturer& orig);
     virtual ~GlobalCovfefeCapturer();
 
@@ -31,4 +32,5 @@ public:
 private:
     IrWidget *irWidget;
     void getIRL(Stream &stream);
+    int learnLed;
 };
