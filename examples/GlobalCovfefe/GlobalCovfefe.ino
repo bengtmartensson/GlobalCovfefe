@@ -146,11 +146,11 @@ void setup() {
     while (!Serial)
         ; // wait for serial port to connect. "Needed for Leonardo only"
 #endif
-    Serial.print(F(PROGNAME " "));
-    Serial.println(GlobalCovfefe::version);
+    Serial.println(F(PROGNAME));
     Serial.setTimeout(serialTimeout);
-
     Serial.println(Ethernet.localIP());
+    globalCovfefe->getversion(Serial);
+    globalCovfefe->getdevices(Serial);
 #endif // defined(ARDUINO) & !defined(ETHERNET) | defined(SERIAL_DEBUG)
 
     globalCovfefe->blink();

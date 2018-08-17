@@ -27,6 +27,9 @@ public:
 
     void readProcessCommand(Stream &stream);
 
+    void getdevices(Stream &stream);
+    void getversion(Stream &stream);
+    void sendir(Stream &stream, char *buf);
     virtual void blink(unsigned int count = blinkCount, milliseconds_t delay = blinkDelay);
 
     /**
@@ -54,10 +57,6 @@ private:
     IrSender *irSender;
     int commandLed;
     int transmitLed;
-
-    void getdevices(Stream &stream);
-    void getversion(Stream &stream);
-    void sendir(Stream &stream, char *buf);
 
 protected:
     virtual void processCommand(Stream &stream, char *buf);
