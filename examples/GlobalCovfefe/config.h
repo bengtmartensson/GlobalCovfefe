@@ -34,35 +34,30 @@
 #ifndef DHCP
 #define IPADDRESS  192,168,1,29
 #define GATEWAY    192,168,1,254
-#define DNSSERVER  192,168,1,4
+#define DNSSERVER  192,168,1,1
 #define SUBNETMASK 255,255,255,0
 #endif // ! DHCP
 
 // Port to take commands from, standard GC port.
 #define PORT       4998
 
-// these are really not defaults,
-// they are the non-changeable values.
-#define BEGINTIMEOUT 10000UL // milliseconds
-
 #ifdef RECEIVE
+#define RECEIVE_PIN 47
 // This quantity is added to all gaps and subtracted from all marks when receiving.
-#define IRRECEIVER_MARK_EXCESS 50
-// If using the decoder, be sure to end a capture before the repeat sequence.
-#define DEFAULT_RECEIVE_ENDINGTIMEOUT 100L // milliseconds
+#define MARK_EXCESS 50
 #endif
 
 #ifdef CAPTURE
-#define CAPTURESIZE 300U // must be even
-#define CAPTURE_PULLUP false
-#define CAPTURE_BEGINTIMEOUT 10000L // milliseconds
-#define CAPTURE_ENDINGTIMEOUT 100L // milliseconds
 // This quantity is added to all gaps and subtracted from all marks when capturing.
-#define IRSENSOR_MARK_EXCESS -10
-#define CAPTURE_ENDINGTIMEOUT 100L // milliseconds
+#define MARK_EXCESS -10
 #endif
+
+#define CAPTURESIZE 300U // must be even
+#define BEGINTIMEOUT 10000UL // milliseconds
+#define ENDINGTIMEOUT 100L // milliseconds
+#define PULLUP false
 
 #if defined(SERIAL_DEBUG)
 #define serialBaud 115200
-#define serialTimeout 5000L
+#define serialTimeout 10000L
 #endif // !defined(ETHERNET) | defined(SERIAL_DEBUG)

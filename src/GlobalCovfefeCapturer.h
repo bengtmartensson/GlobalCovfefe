@@ -18,11 +18,11 @@ this program. If not, see http://www.gnu.org/licenses/.
 #pragma once
 
 #include <GlobalCovfefe.h>
-#include <IrWidget.h>
+#include <IrReader.h>
 
 class GlobalCovfefeCapturer : public GlobalCovfefe {
 public:
-    GlobalCovfefeCapturer(IrSender *irSender, IrWidget *irWidget,
+    GlobalCovfefeCapturer(IrSender *irSender, IrReader *irReader,
             int commandLed = invalidPin, int learnLed = invalidPin, int transmitLed = invalidPin);
     GlobalCovfefeCapturer(const GlobalCovfefeCapturer& orig);
     virtual ~GlobalCovfefeCapturer();
@@ -33,6 +33,6 @@ public:
     void getIRL(Stream &stream);
 
 private:
-    IrWidget *irWidget;
+    IrReader *irReader;
     int learnLed;
 };

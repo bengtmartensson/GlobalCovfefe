@@ -17,7 +17,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 #include "config.h"
 
-#ifdef CAPTURE
+#if defined(CAPTURE) || defined(RECEIVE)
 #include <GlobalCovfefeCapturer.h>
 #else
 #include <GlobalCovfefe.h>
@@ -41,7 +41,6 @@ this program. If not, see http://www.gnu.org/licenses/.
 #endif // CAPTURE
 
 #ifdef RECEIVE
-#error RECEIVE is not yet implemented.
 #include <IrReceiverSampler.h>
 #endif
 
@@ -111,12 +110,16 @@ void loop() {
 void setup() {
     IrSender *irSender = IrSenderPwm::getInstance(true);
 
+#if defined(CAPTURE) || defined(RECEIVE)
+    IrReader *irReader =
 #ifdef CAPTURE
-    IrWidget *irWidget = IrWidgetAggregating::newIrWidgetAggregating(CAPTURESIZE,
-            CAPTURE_PULLUP, IRSENSOR_MARK_EXCESS,
-            CAPTURE_BEGINTIMEOUT, CAPTURE_ENDINGTIMEOUT);
+            IrWidgetAggregating::newIrWidgetAggregating(CAPTURESIZE,
+#else
+            IrReceiverSampler::newIrReceiverSampler(CAPTURESIZE, RECEIVE_PIN,
+#endif
+            PULLUP, MARK_EXCESS, BEGINTIMEOUT, ENDINGTIMEOUT);
 
-    globalCovfefe = new GlobalCovfefeCapturer(irSender, irWidget, commandLed, learnLed, transmitLed);
+    globalCovfefe = new GlobalCovfefeCapturer(irSender, irReader, commandLed, learnLed, transmitLed);
 #else
     globalCovfefe = new GlobalCovfefe(irSender, commandLed, transmitLed);
 #endif
@@ -140,18 +143,26 @@ void setup() {
             "iTachFlexEthernet", GlobalCovfefe::version, "none", "http://arduino/nosuchfile.html");
 #endif
 
-#if defined(ARDUINO) & defined(SERIAL_DEBUG)
+#ifdef SERIAL_DEBUG
     Serial.begin(serialBaud);
 #if defined(ARDUINO_AVR_LEONARDO) | defined(ARDUINO_AVR_MICRO)
     while (!Serial)
         ; // wait for serial port to connect. "Needed for Leonardo only"
 #endif
+
     Serial.println(F(PROGNAME));
     Serial.setTimeout(serialTimeout);
+#ifdef CAPTURE
+    Serial.println(F("Non-demodulating learner"));
+#elif defined(RECEIVE)
+    Serial.println(F("Demodulating learner"));
+#else
+    Serial.println(F("No learning device"));
+#endif
     Serial.println(Ethernet.localIP());
     globalCovfefe->getversion(Serial);
     globalCovfefe->getdevices(Serial);
-#endif // defined(ARDUINO) & !defined(ETHERNET) | defined(SERIAL_DEBUG)
+#endif // SERIAL_DEBUG
 
     globalCovfefe->blink();
 }
