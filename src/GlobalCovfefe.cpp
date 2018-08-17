@@ -85,6 +85,21 @@ void GlobalCovfefe::turnOffLed(int pin) {
         digitalWrite(pin, LOW);
 }
 
+void GlobalCovfefe::turnOnOffLed(int pin, milliseconds_t ms) {
+    if (pin != invalidPin) {
+        digitalWrite(pin, HIGH);
+        delay((unsigned long) ms);
+        digitalWrite(pin, LOW);
+    }
+}
+
+void GlobalCovfefe::blink(unsigned int count, milliseconds_t ms) {
+    for (unsigned int i = 0; i < count; i++) {
+        turnOnOffLed(commandLed, ms);
+        turnOnOffLed(transmitLed, ms);
+    }
+}
+
 void GlobalCovfefe::readProcessCommand(Stream& stream) {
     char buf[bufSize];
     turnOnLed(commandLed);
@@ -107,6 +122,8 @@ void GlobalCovfefe::processCommand(Stream &stream, char* buf) {
         getdevices(stream);
     else if (strncmp(buf, "getversion", 10) == 0)
         getversion(stream);
+    else if (strncmp(buf, "blink", 5) == 0)
+        blink();
     else if (strncmp(buf, "sendir", 6) == 0)
         sendir(stream, buf);
     else // Command unrecognized

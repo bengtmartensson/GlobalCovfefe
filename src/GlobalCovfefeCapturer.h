@@ -28,6 +28,7 @@ public:
     virtual ~GlobalCovfefeCapturer();
 
     virtual void processCommand(Stream &stream, char* buf);
+    virtual void blink(unsigned int count = blinkCount, milliseconds_t delay = blinkDelay);
 
 private:
     IrWidget *irWidget;

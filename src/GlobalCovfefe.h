@@ -27,6 +27,8 @@ public:
 
     void readProcessCommand(Stream &stream);
 
+    virtual void blink(unsigned int count = blinkCount, milliseconds_t delay = blinkDelay);
+
     /**
      * Version of the present program.
      */
@@ -44,6 +46,10 @@ public:
      */
     static const size_t bufSize = 300U;
 
+    static const unsigned int blinkCount = 3;
+
+    static const milliseconds_t blinkDelay = 200;
+
 private:
     IrSender *irSender;
     int commandLed;
@@ -58,4 +64,5 @@ protected:
     void initLed(int pin);
     void turnOnLed(int pin);
     void turnOffLed(int pin);
+    void turnOnOffLed(int pin, milliseconds_t delay);
 };

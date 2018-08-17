@@ -152,4 +152,6 @@ void setup() {
 
     Serial.println(Ethernet.localIP());
 #endif // defined(ARDUINO) & !defined(ETHERNET) | defined(SERIAL_DEBUG)
+
+    globalCovfefe->blink();
 }

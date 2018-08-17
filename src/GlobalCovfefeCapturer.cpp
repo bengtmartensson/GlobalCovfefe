@@ -30,6 +30,13 @@ GlobalCovfefeCapturer::GlobalCovfefeCapturer(const GlobalCovfefeCapturer& orig) 
 GlobalCovfefeCapturer::~GlobalCovfefeCapturer() {
 }
 
+void GlobalCovfefeCapturer::blink(unsigned int count, milliseconds_t ms) {
+    for (unsigned int i = 0; i < count; i++) {
+        turnOnOffLed(learnLed, ms);
+        GlobalCovfefe::blink(1, ms);
+    }
+}
+
 void GlobalCovfefeCapturer::processCommand(Stream &stream, char* buf) {
     if (strncmp(buf, "get_IRL", 7) == 0)
         getIRL(stream);
