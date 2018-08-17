@@ -20,12 +20,12 @@ this program. If not, see http://www.gnu.org/licenses/.
 #include <GlobalCovfefe.h>
 #include <IrReader.h>
 
-class GlobalCovfefeCapturer : public GlobalCovfefe {
+class GlobalCovfefeLearner : public GlobalCovfefe {
 public:
-    GlobalCovfefeCapturer(IrSender *irSender, IrReader *irReader,
+    GlobalCovfefeLearner(IrSender *irSender, IrReader *irReader,
             int commandLed = invalidPin, int learnLed = invalidPin, int transmitLed = invalidPin);
-    GlobalCovfefeCapturer(const GlobalCovfefeCapturer& orig);
-    virtual ~GlobalCovfefeCapturer();
+    GlobalCovfefeLearner(const GlobalCovfefeLearner& orig);
+    virtual ~GlobalCovfefeLearner();
 
     virtual void processCommand(Stream &stream, char* buf);
     virtual void blink(unsigned int count = blinkCount, milliseconds_t delay = blinkDelay);

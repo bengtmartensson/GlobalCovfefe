@@ -15,36 +15,36 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see http://www.gnu.org/licenses/.
 */
 
-#include "GlobalCovfefeCapturer.h"
+#include "GlobalCovfefeLearner.h"
 
-GlobalCovfefeCapturer::GlobalCovfefeCapturer(IrSender *irSender_, IrReader *irReader_,
+GlobalCovfefeLearner::GlobalCovfefeLearner(IrSender *irSender_, IrReader *irReader_,
         int commandLed_, int learnLed_, int transmitLed_)
 : GlobalCovfefe(irSender_, commandLed_, transmitLed_),irReader(irReader_),learnLed(learnLed_) {
     irReader->reset();
     initLed(learnLed);
 }
 
-GlobalCovfefeCapturer::GlobalCovfefeCapturer(const GlobalCovfefeCapturer& orig) : GlobalCovfefe(orig),irReader(orig.irReader) {
+GlobalCovfefeLearner::GlobalCovfefeLearner(const GlobalCovfefeLearner& orig) : GlobalCovfefe(orig),irReader(orig.irReader) {
 }
 
-GlobalCovfefeCapturer::~GlobalCovfefeCapturer() {
+GlobalCovfefeLearner::~GlobalCovfefeLearner() {
 }
 
-void GlobalCovfefeCapturer::blink(unsigned int count, milliseconds_t ms) {
+void GlobalCovfefeLearner::blink(unsigned int count, milliseconds_t ms) {
     for (unsigned int i = 0; i < count; i++) {
         turnOnOffLed(learnLed, ms);
         GlobalCovfefe::blink(1, ms);
     }
 }
 
-void GlobalCovfefeCapturer::processCommand(Stream &stream, char* buf) {
+void GlobalCovfefeLearner::processCommand(Stream &stream, char* buf) {
     if (strncmp(buf, "get_IRL", 7) == 0)
         getIRL(stream);
     else
         GlobalCovfefe::processCommand(stream, buf);
 }
 
-void GlobalCovfefeCapturer::getIRL(Stream &stream) {
+void GlobalCovfefeLearner::getIRL(Stream &stream) {
     stream.println(F("IR Learner Enabled"));
     turnOnLed(learnLed);
 

@@ -18,7 +18,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 #include "config.h"
 
 #if defined(CAPTURE) || defined(RECEIVE)
-#include <GlobalCovfefeCapturer.h>
+#include <GlobalCovfefeLearner.h>
 #else
 #include <GlobalCovfefe.h>
 #endif
@@ -119,7 +119,7 @@ void setup() {
 #endif
             PULLUP, MARK_EXCESS, BEGINTIMEOUT, ENDINGTIMEOUT);
 
-    globalCovfefe = new GlobalCovfefeCapturer(irSender, irReader, commandLed, learnLed, transmitLed);
+    globalCovfefe = new GlobalCovfefeLearner(irSender, irReader, commandLed, learnLed, transmitLed);
 #else
     globalCovfefe = new GlobalCovfefe(irSender, commandLed, transmitLed);
 #endif
