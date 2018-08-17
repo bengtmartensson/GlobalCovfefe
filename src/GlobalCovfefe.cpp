@@ -161,7 +161,7 @@ void GlobalCovfefe::sendir(Stream &stream, char *buf) {
     microseconds_t reps[lengthRepetition];
     grok(reps, lengthRepetition, freq);
 
-    IrSignal irSignal(intro, lengthIntro, reps, lengthRepetition, NULL, 0U, freq);
+    IrSignal irSignal(intro, lengthIntro, reps, lengthRepetition, freq);
     turnOnLed(transmitLed);
     irSender->sendIrSignal(irSignal, repeat);
     turnOffLed(transmitLed);
