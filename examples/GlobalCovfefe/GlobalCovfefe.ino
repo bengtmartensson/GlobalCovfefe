@@ -46,7 +46,21 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 #ifdef BEACON
 #include <Beacon.h>
-#endif
+
+static char macString[18];
+
+static void macStringCompute(byte *mac) {
+    char *p = macString;
+    for (unsigned int i = 0; i < 6U; i++) {
+        itoa(mac[i], p, 16);
+        if (i < 5U) {
+            unsigned len = strlen(p);
+            p[len] = '-';
+            p += len + 1;
+        }
+    }
+}
+#endif  // BEACON
 
 static const int commandLed =
 #ifdef COMMAND_LED
@@ -138,16 +152,17 @@ void setup() {
 
     server.begin();
 
-#ifdef BEACON
-    Beacon::setup(PROGNAME, "DE-AD-BE-EF-FE-ED", "Utility", "GlobalCache",
-            "iTachFlexEthernet", GlobalCovfefe::version, "none", "http://arduino/nosuchfile.html");
-#endif
-
 #ifdef SERIAL_DEBUG
     Serial.begin(serialBaud);
 #if defined(ARDUINO_AVR_LEONARDO) | defined(ARDUINO_AVR_MICRO)
     while (!Serial)
         ; // wait for serial port to connect. "Needed for Leonardo only"
+#endif
+
+#ifdef BEACON
+    macStringCompute(mac);
+    Beacon::setup(PROGNAME, macString, "Utility", "GlobalCache",
+            "iTachFlexEthernet", GlobalCovfefe::version, NULL, NULL);
 #endif
 
     Serial.println(F(PROGNAME));
@@ -159,6 +174,11 @@ void setup() {
 #else
     Serial.println(F("No learning device"));
 #endif
+
+#ifdef BEACON
+    Serial.println(F("Beacon is configured"));
+#endif
+
     Serial.println(Ethernet.localIP());
     globalCovfefe->getversion(Serial);
     globalCovfefe->getdevices(Serial);
