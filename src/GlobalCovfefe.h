@@ -37,6 +37,8 @@ public:
      */
     static const char *version;
 
+    static const uint16_t GlobalCovfefe::tcpPort = 4998U;
+
     /**
      * GlobalCache uses CR as line terminator. Period.
      */

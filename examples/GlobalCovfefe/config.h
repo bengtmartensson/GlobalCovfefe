@@ -39,7 +39,7 @@
 #endif // ! DHCP
 
 // Port to take commands from, standard GC port.
-#define PORT       4998
+#define PORT       GlobalCovfefe::tcpPort
 
 #ifdef RECEIVE
 #define RECEIVE_PIN 47
