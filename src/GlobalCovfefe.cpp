@@ -16,6 +16,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 */
 
 #include "GlobalCovfefe.h"
+#include "version/version.h" // defines VERSION
 
 /* Global Cache error codes:
 
@@ -51,7 +52,7 @@ ERR RS008 Invalid sensor notify port value.
 ERR RS009 Invalid sensor notify timer value.
  */
 
-const char *GlobalCovfefe::version = "0.0.1";
+const char *GlobalCovfefe::version = VERSION;
 
 // Ugly
 #define IRMODULE "1"
