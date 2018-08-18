@@ -1,4 +1,5 @@
 # Makefile for creating stuff on host.
+# Basically for maintainer only.
 # Use Arduino IDE for compiling for Arduino.
 
 # The functions for generating keywords.txt requires KeywordsTxtGenerator,
@@ -11,7 +12,7 @@ endif
 
 KEYWORD_TXT_GENERATOR_DIR = ../KeywordsTxtGenerator
 DOXYGEN := doxygen
-DOXYFILE :=  Doxyfile
+DOXYFILE := Doxyfile
 XSLTPROC := xsltproc
 TRANSFORMATION := $(KEYWORD_TXT_GENERATOR_DIR)/doxygen2keywords.xsl
 
@@ -46,7 +47,7 @@ clean:
 	rm -rf *.a *.o api-doc xml gh-pages
 
 spotless: clean
-	rm -rf keywords.txt src/version/version.h
+	rm -f keywords.txt src/version/version.h
 
 keywords.txt: xml/index.xml
 	$(XSLTPROC) $(TRANSFORMATION) $< > $@

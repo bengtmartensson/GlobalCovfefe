@@ -11,6 +11,10 @@
 // not available.
 //#define RECEIVE
 
+// LEDs can be configured to signal the operating condition.
+// Due to the single-session nature, at least
+// COMMAND_LED is highly recommended,
+// use pin 13 if you do not have anything else.
 #define COMMAND_LED     22 //16
 #define LEARN_LED       24 // 17
 #define TRANSMIT_LED    32 // 30
@@ -27,6 +31,10 @@
 // Invoke the AMX style beacon, as per https://github.com/bengtmartensson/ABeacon
 // Disable if you want/must to save memory; otherwise you probably want this.
 #define BEACON
+
+#if defined(BEACON) && ! defined(SERIAL_DEBUG)
+#error BEACON without SERIAL_DEBUG does not work; I do not know why :-/
+#endif
 
 // Hardware configuration
 #define MACADDRESS 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
