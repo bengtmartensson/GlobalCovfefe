@@ -71,22 +71,22 @@ GlobalCovfefe::GlobalCovfefe(const GlobalCovfefe& orig) : irSender(orig.irSender
 GlobalCovfefe::~GlobalCovfefe() {
 }
 
-void GlobalCovfefe::initLed(int pin) {
+void GlobalCovfefe::initLed(int pin) const {
     if (pin != invalidPin)
         pinMode(pin, OUTPUT);
 }
 
-void GlobalCovfefe::turnOnLed(int pin) {
+void GlobalCovfefe::turnOnLed(int pin) const {
     if (pin != invalidPin)
         digitalWrite(pin, HIGH);
 }
 
-void GlobalCovfefe::turnOffLed(int pin) {
+void GlobalCovfefe::turnOffLed(int pin) const {
     if (pin != invalidPin)
         digitalWrite(pin, LOW);
 }
 
-void GlobalCovfefe::turnOnOffLed(int pin, milliseconds_t ms) {
+void GlobalCovfefe::turnOnOffLed(int pin, milliseconds_t ms) const {
     if (pin != invalidPin) {
         digitalWrite(pin, HIGH);
         delay((unsigned long) ms);
@@ -94,14 +94,14 @@ void GlobalCovfefe::turnOnOffLed(int pin, milliseconds_t ms) {
     }
 }
 
-void GlobalCovfefe::blink(unsigned int count, milliseconds_t ms) {
+void GlobalCovfefe::blink(unsigned int count, milliseconds_t ms) const {
     for (unsigned int i = 0; i < count; i++) {
         turnOnOffLed(commandLed, ms);
         turnOnOffLed(transmitLed, ms);
     }
 }
 
-void GlobalCovfefe::readProcessCommand(Stream& stream) {
+void GlobalCovfefe::readProcessCommand(Stream& stream) const {
     char buf[bufSize];
     turnOnLed(commandLed);
     unsigned int n = stream.readBytesUntil(eolChar, buf, bufSize);
@@ -118,7 +118,7 @@ void GlobalCovfefe::readProcessCommand(Stream& stream) {
     stream.flush();
 }
 
-void GlobalCovfefe::processCommand(Stream &stream, char* buf) {
+void GlobalCovfefe::processCommand(Stream &stream, char* buf) const {
     if (strncmp(buf, "getdevices", 10) == 0)
         getdevices(stream);
     else if (strncmp(buf, "getversion", 10) == 0)
@@ -147,7 +147,7 @@ static void grok(microseconds_t *buf, size_t length, frequency_t freq) {
     }
 }
 
-void GlobalCovfefe::sendir(Stream &stream, char *buf) {
+void GlobalCovfefe::sendir(Stream &stream, char *buf) const {
     unsigned int commas = noCommas(buf);
     strtok(buf, ",");
     strtok(NULL, ","); // connector, ignore nor now
@@ -170,13 +170,13 @@ void GlobalCovfefe::sendir(Stream &stream, char *buf) {
     stream.println(id);
 }
 
-void GlobalCovfefe::getdevices(Stream &stream) {
+void GlobalCovfefe::getdevices(Stream &stream) const {
     stream.println(F("device,0,0 ETHERNET"));
     if (irSender != NULL)
         stream.println(F("device," IRMODULE "," IRPORT " IR"));
     stream.println(F("endlistdevices"));
 }
 
-void GlobalCovfefe::getversion(Stream &stream) {
+void GlobalCovfefe::getversion(Stream &stream) const {
     stream.println(version);
 }

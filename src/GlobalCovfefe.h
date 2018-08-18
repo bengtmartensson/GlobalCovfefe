@@ -19,18 +19,59 @@ this program. If not, see http://www.gnu.org/licenses/.
 
 #include <IrSender.h>
 
+/**
+ * This class emulates the IR sending of a GlobalCache device. It does not
+ * know about Ethernet, only reads from (and writes to) a Stream,
+ * given as argument to a few of the member functions.
+ */
 class GlobalCovfefe {
 public:
+    /**
+     * Main constructor.
+     * @param irSender Pointer to an IrSender from Infrared4Arduino.
+     * @param commandLed Pin number of command LED, if present.
+     * @param transmitLed Pin number of transmit LED, if present.
+     */
     GlobalCovfefe(IrSender *irSender, int commandLed = invalidPin, int transmitLed = invalidPin);
+
+    /**
+     * Copy constructor
+     * @param orig
+     */
     GlobalCovfefe(const GlobalCovfefe& orig);
     virtual ~GlobalCovfefe();
 
-    void readProcessCommand(Stream &stream);
+    /**
+     * Reads and processes one command from the supplied Stream argument.
+     * @param stream where the output is written.
+     */
+    void readProcessCommand(Stream &stream) const;
 
-    void getdevices(Stream &stream);
-    void getversion(Stream &stream);
-    void sendir(Stream &stream, char *buf);
-    virtual void blink(unsigned int count = blinkCount, milliseconds_t delay = blinkDelay);
+    /**
+     * Implements the getdevices command.
+     * @param stream where the output is written.
+     */
+    void getdevices(Stream &stream) const;
+
+    /**
+     * Implements the getversion command.
+     * @param stream where the output is written.
+     */
+    void getversion(Stream &stream) const;
+
+    /**
+     * Implements the sendir command. The command line, by writing on the supplied argument.
+     * @param stream where the output (completeir) is written.
+     * @param buf Supposed to hold the complete command line. Is destroyed, thereby not const.
+     */
+    void sendir(Stream &stream, char *buf) const;
+
+    /**
+     * Implements the blink command (found in GC-100)
+     * @param count Number of times to flash.
+     * @param delay Delay in milli seconds
+     */
+    virtual void blink(unsigned int count = blinkCount, milliseconds_t delay = blinkDelay) const;
 
     /**
      * Version of the present program.
@@ -38,7 +79,7 @@ public:
     static const char *version;
 
     /**
-     * Standard TCP command port.
+     * The GlobalCache standard TCP command port.
      */
     static const uint16_t tcpPort = 4998U;
 
@@ -64,9 +105,22 @@ private:
     int transmitLed;
 
 protected:
-    virtual void processCommand(Stream &stream, char *buf);
-    void initLed(int pin);
-    void turnOnLed(int pin);
-    void turnOffLed(int pin);
-    void turnOnOffLed(int pin, milliseconds_t delay);
+    /**
+     * Processes one command from the supplied Stream argument.
+     * To be overridden in derived classes that are implementing more commands.
+     * @param stream where possible output is written.
+     * @param buf Command line, to be interpreted.
+     */
+    virtual void processCommand(Stream &stream, char *buf) const;
+
+    void initLed(int pin) const;
+    void turnOnLed(int pin) const;
+    void turnOffLed(int pin) const;
+
+    /**
+     * Turns on the pin as the first argument, waits delay milli seconds, then turns off the pin.
+     * @param pin
+     * @param delay
+     */
+    void turnOnOffLed(int pin, milliseconds_t delay) const;
 };

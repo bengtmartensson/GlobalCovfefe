@@ -30,21 +30,21 @@ GlobalCovfefeLearner::GlobalCovfefeLearner(const GlobalCovfefeLearner& orig) : G
 GlobalCovfefeLearner::~GlobalCovfefeLearner() {
 }
 
-void GlobalCovfefeLearner::blink(unsigned int count, milliseconds_t ms) {
+void GlobalCovfefeLearner::blink(unsigned int count, milliseconds_t ms) const {
     for (unsigned int i = 0; i < count; i++) {
         turnOnOffLed(learnLed, ms);
         GlobalCovfefe::blink(1, ms);
     }
 }
 
-void GlobalCovfefeLearner::processCommand(Stream &stream, char* buf) {
+void GlobalCovfefeLearner::processCommand(Stream &stream, char* buf) const {
     if (strncmp(buf, "get_IRL", 7) == 0)
         getIRL(stream);
     else
         GlobalCovfefe::processCommand(stream, buf);
 }
 
-void GlobalCovfefeLearner::getIRL(Stream &stream) {
+void GlobalCovfefeLearner::getIRL(Stream &stream) const {
     stream.println(F("IR Learner Enabled"));
     turnOnLed(learnLed);
 
