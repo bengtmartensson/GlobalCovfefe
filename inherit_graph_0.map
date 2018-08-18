@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classGlobalCovfefe.html" title="GlobalCovfefe" alt="" coords="5,5,120,32"/>
-<area shape="rect" id="node2" href="$classGlobalCovfefeLearner.html" title="GlobalCovfefeLearner" alt="" coords="168,5,332,32"/>
+<area shape="rect" id="node1" href="$classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. " alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node2" href="$classGlobalCovfefeLearner.html" title="This class is derived from GlobalCovfefe, and adds the get_IRL command, invoking a learner..." alt="" coords="168,5,332,32"/>
 </map>

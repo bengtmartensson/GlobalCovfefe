@@ -71,42 +71,52 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>This class emulates the IR sending of a GlobalCache device.  
+ <a href="classGlobalCovfefe.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GlobalCovfefe:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGlobalCovfefe__inherit__graph.png" border="0" usemap="#GlobalCovfefe_inherit__map" alt="Inheritance graph"/></div>
 <map name="GlobalCovfefe_inherit__map" id="GlobalCovfefe_inherit__map">
-<area shape="rect" id="node2" href="classGlobalCovfefeLearner.html" title="GlobalCovfefeLearner" alt="" coords="5,80,169,107"/>
+<area shape="rect" id="node2" href="classGlobalCovfefeLearner.html" title="This class is derived from GlobalCovfefe, and adds the get_IRL command, invoking a learner..." alt="" coords="5,80,169,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae15fc91772cf7958ee8486d1b13145cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#ae15fc91772cf7958ee8486d1b13145cc">GlobalCovfefe</a> (IrSender *irSender, int commandLed=<a class="el" href="classGlobalCovfefe.html#a0a7a9b82539a35ac7f25f57a58570107">invalidPin</a>, int transmitLed=<a class="el" href="classGlobalCovfefe.html#a0a7a9b82539a35ac7f25f57a58570107">invalidPin</a>)</td></tr>
+<tr class="memdesc:ae15fc91772cf7958ee8486d1b13145cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main constructor.  <a href="#ae15fc91772cf7958ee8486d1b13145cc">More...</a><br /></td></tr>
 <tr class="separator:ae15fc91772cf7958ee8486d1b13145cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7c85d833ae2b9acb264fb83ae714db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a5b7c85d833ae2b9acb264fb83ae714db">GlobalCovfefe</a> (const <a class="el" href="classGlobalCovfefe.html">GlobalCovfefe</a> &amp;orig)</td></tr>
+<tr class="memdesc:a5b7c85d833ae2b9acb264fb83ae714db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a5b7c85d833ae2b9acb264fb83ae714db">More...</a><br /></td></tr>
 <tr class="separator:a5b7c85d833ae2b9acb264fb83ae714db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a237e0c13731d2c3d07a99db6799bf92a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a237e0c13731d2c3d07a99db6799bf92a">~GlobalCovfefe</a> ()</td></tr>
 <tr class="separator:a237e0c13731d2c3d07a99db6799bf92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5852c33001fd8a9b7456649010ab21d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a5852c33001fd8a9b7456649010ab21d2">readProcessCommand</a> (Stream &amp;stream)</td></tr>
-<tr class="separator:a5852c33001fd8a9b7456649010ab21d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa7fb9f964f410ee20138f98557719e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a4fa7fb9f964f410ee20138f98557719e">getdevices</a> (Stream &amp;stream)</td></tr>
-<tr class="separator:a4fa7fb9f964f410ee20138f98557719e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f24f2f0a6ff3c8449e7fec3b513fc95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a4f24f2f0a6ff3c8449e7fec3b513fc95">getversion</a> (Stream &amp;stream)</td></tr>
-<tr class="separator:a4f24f2f0a6ff3c8449e7fec3b513fc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7917236477c7890f0d7b54541ac931c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a7917236477c7890f0d7b54541ac931c7">sendir</a> (Stream &amp;stream, char *buf)</td></tr>
-<tr class="separator:a7917236477c7890f0d7b54541ac931c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2441ba52387b30005056c2278898099"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#af2441ba52387b30005056c2278898099">blink</a> (unsigned int count=<a class="el" href="classGlobalCovfefe.html#a4e62b6d28a009037dd6ebd92d8f6ac07">blinkCount</a>, milliseconds_t delay=<a class="el" href="classGlobalCovfefe.html#aba3576b04667b1a935cfd0915b638f89">blinkDelay</a>)</td></tr>
-<tr class="separator:af2441ba52387b30005056c2278898099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a4decc94c161b44104f31a5aab3684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a41a4decc94c161b44104f31a5aab3684">readProcessCommand</a> (Stream &amp;stream) const</td></tr>
+<tr class="memdesc:a41a4decc94c161b44104f31a5aab3684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and processes one command from the supplied Stream argument.  <a href="#a41a4decc94c161b44104f31a5aab3684">More...</a><br /></td></tr>
+<tr class="separator:a41a4decc94c161b44104f31a5aab3684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119cda72866999677b82bce0cc1864bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a119cda72866999677b82bce0cc1864bb">getdevices</a> (Stream &amp;stream) const</td></tr>
+<tr class="memdesc:a119cda72866999677b82bce0cc1864bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the getdevices command.  <a href="#a119cda72866999677b82bce0cc1864bb">More...</a><br /></td></tr>
+<tr class="separator:a119cda72866999677b82bce0cc1864bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af908548c13491d1a49102e91b4ba9e8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#af908548c13491d1a49102e91b4ba9e8e">getversion</a> (Stream &amp;stream) const</td></tr>
+<tr class="memdesc:af908548c13491d1a49102e91b4ba9e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the getversion command.  <a href="#af908548c13491d1a49102e91b4ba9e8e">More...</a><br /></td></tr>
+<tr class="separator:af908548c13491d1a49102e91b4ba9e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4f6fa893a5a220ebe57dc8c38314951"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#ad4f6fa893a5a220ebe57dc8c38314951">sendir</a> (Stream &amp;stream, char *buf) const</td></tr>
+<tr class="memdesc:ad4f6fa893a5a220ebe57dc8c38314951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the sendir command.  <a href="#ad4f6fa893a5a220ebe57dc8c38314951">More...</a><br /></td></tr>
+<tr class="separator:ad4f6fa893a5a220ebe57dc8c38314951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1782609a3fd057c1f034e8f9918302d8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a1782609a3fd057c1f034e8f9918302d8">blink</a> (unsigned int count=<a class="el" href="classGlobalCovfefe.html#a4e62b6d28a009037dd6ebd92d8f6ac07">blinkCount</a>, milliseconds_t delay=<a class="el" href="classGlobalCovfefe.html#aba3576b04667b1a935cfd0915b638f89">blinkDelay</a>) const</td></tr>
+<tr class="memdesc:a1782609a3fd057c1f034e8f9918302d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the blink command (found in GC-100)  <a href="#a1782609a3fd057c1f034e8f9918302d8">More...</a><br /></td></tr>
+<tr class="separator:a1782609a3fd057c1f034e8f9918302d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a84f8511595145c46f2e76a9be7d316f8"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a84f8511595145c46f2e76a9be7d316f8">version</a> = VERSION</td></tr>
+<tr class="memitem:a84f8511595145c46f2e76a9be7d316f8"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a84f8511595145c46f2e76a9be7d316f8">version</a> = <a class="el" href="version_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">VERSION</a></td></tr>
 <tr class="memdesc:a84f8511595145c46f2e76a9be7d316f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version of the present program.  <a href="#a84f8511595145c46f2e76a9be7d316f8">More...</a><br /></td></tr>
 <tr class="separator:a84f8511595145c46f2e76a9be7d316f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65aebc5697a8465caa9bef223c3e5e43"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a65aebc5697a8465caa9bef223c3e5e43">tcpPort</a> = 4998U</td></tr>
-<tr class="memdesc:a65aebc5697a8465caa9bef223c3e5e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard TCP command port.  <a href="#a65aebc5697a8465caa9bef223c3e5e43">More...</a><br /></td></tr>
+<tr class="memdesc:a65aebc5697a8465caa9bef223c3e5e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">The GlobalCache standard TCP command port.  <a href="#a65aebc5697a8465caa9bef223c3e5e43">More...</a><br /></td></tr>
 <tr class="separator:a65aebc5697a8465caa9bef223c3e5e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56166ad6fce4c65a1ea14e44d085a632"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a56166ad6fce4c65a1ea14e44d085a632">eolChar</a> = '\r'</td></tr>
 <tr class="memdesc:a56166ad6fce4c65a1ea14e44d085a632"><td class="mdescLeft">&#160;</td><td class="mdescRight">GlobalCache uses CR as line terminator.  <a href="#a56166ad6fce4c65a1ea14e44d085a632">More...</a><br /></td></tr>
@@ -123,20 +133,24 @@ Static Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8c98ef71e572591b6369bc58a80c05e8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a8c98ef71e572591b6369bc58a80c05e8">processCommand</a> (Stream &amp;stream, char *buf)</td></tr>
-<tr class="separator:a8c98ef71e572591b6369bc58a80c05e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3431aaee9f77adc1f826642b9f437609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a3431aaee9f77adc1f826642b9f437609">initLed</a> (int pin)</td></tr>
-<tr class="separator:a3431aaee9f77adc1f826642b9f437609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f036c848375d3bfd0de76df52599a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#ae0f036c848375d3bfd0de76df52599a4">turnOnLed</a> (int pin)</td></tr>
-<tr class="separator:ae0f036c848375d3bfd0de76df52599a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad10be92b5acebf986e102a6d00aa5b54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#ad10be92b5acebf986e102a6d00aa5b54">turnOffLed</a> (int pin)</td></tr>
-<tr class="separator:ad10be92b5acebf986e102a6d00aa5b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a62d6b47f82b4f0c93f3f4fdf3a5562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a6a62d6b47f82b4f0c93f3f4fdf3a5562">turnOnOffLed</a> (int pin, milliseconds_t delay)</td></tr>
-<tr class="separator:a6a62d6b47f82b4f0c93f3f4fdf3a5562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694156b1b8d1a10974418c7beed9cd9d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a694156b1b8d1a10974418c7beed9cd9d">processCommand</a> (Stream &amp;stream, char *buf) const</td></tr>
+<tr class="memdesc:a694156b1b8d1a10974418c7beed9cd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes one command from the supplied Stream argument.  <a href="#a694156b1b8d1a10974418c7beed9cd9d">More...</a><br /></td></tr>
+<tr class="separator:a694156b1b8d1a10974418c7beed9cd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312bfe25ae017bc7b7f96d932ff0b6fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a312bfe25ae017bc7b7f96d932ff0b6fd">initLed</a> (int pin) const</td></tr>
+<tr class="separator:a312bfe25ae017bc7b7f96d932ff0b6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d7e9a27a835465ca6b3575f6ef5eedb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a2d7e9a27a835465ca6b3575f6ef5eedb">turnOnLed</a> (int pin) const</td></tr>
+<tr class="separator:a2d7e9a27a835465ca6b3575f6ef5eedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e50dc47e3e57878480454c4952e5b74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#a7e50dc47e3e57878480454c4952e5b74">turnOffLed</a> (int pin) const</td></tr>
+<tr class="separator:a7e50dc47e3e57878480454c4952e5b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfbc918dbff3ffd68bb471873052714b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalCovfefe.html#adfbc918dbff3ffd68bb471873052714b">turnOnOffLed</a> (int pin, milliseconds_t delay) const</td></tr>
+<tr class="memdesc:adfbc918dbff3ffd68bb471873052714b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns on the pin as the first argument, waits delay milli seconds, then turns off the pin.  <a href="#adfbc918dbff3ffd68bb471873052714b">More...</a><br /></td></tr>
+<tr class="separator:adfbc918dbff3ffd68bb471873052714b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00022">22</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<div class="textblock"><p>This class emulates the IR sending of a GlobalCache device. </p>
+<p>It does not know about Ethernet, only reads from (and writes to) a Stream, given as argument to a few of the member functions. </p>
+
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00027">27</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae15fc91772cf7958ee8486d1b13145cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae15fc91772cf7958ee8486d1b13145cc">&#9670;&nbsp;</a></span>GlobalCovfefe() <span class="overload">[1/2]</span></h2>
@@ -170,6 +184,16 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Main constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">irSender</td><td>Pointer to an IrSender from Infrared4Arduino. </td></tr>
+    <tr><td class="paramname">commandLed</td><td>Pin number of command LED, if present. </td></tr>
+    <tr><td class="paramname">transmitLed</td><td>Pin number of transmit LED, if present. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00061">61</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
@@ -189,6 +213,14 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orig</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00068">68</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
@@ -222,8 +254,8 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af2441ba52387b30005056c2278898099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2441ba52387b30005056c2278898099">&#9670;&nbsp;</a></span>blink()</h2>
+<a id="a1782609a3fd057c1f034e8f9918302d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1782609a3fd057c1f034e8f9918302d8">&#9670;&nbsp;</a></span>blink()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,7 +278,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -256,14 +288,23 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classGlobalCovfefeLearner.html#a69332709ac6358d9090c2c57796e8ecf">GlobalCovfefeLearner</a>.</p>
+<p>Implements the blink command (found in GC-100) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Number of times to flash. </td></tr>
+    <tr><td class="paramname">delay</td><td>Delay in milli seconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classGlobalCovfefeLearner.html#aa9a318aa60dadde4c90c48fbebc44558">GlobalCovfefeLearner</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00097">97</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a4fa7fb9f964f410ee20138f98557719e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fa7fb9f964f410ee20138f98557719e">&#9670;&nbsp;</a></span>getdevices()</h2>
+<a id="a119cda72866999677b82bce0cc1864bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a119cda72866999677b82bce0cc1864bb">&#9670;&nbsp;</a></span>getdevices()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,17 +314,25 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">Stream &amp;&#160;</td>
           <td class="paramname"><em>stream</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Implements the getdevices command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>where the output is written. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00173">173</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a4f24f2f0a6ff3c8449e7fec3b513fc95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f24f2f0a6ff3c8449e7fec3b513fc95">&#9670;&nbsp;</a></span>getversion()</h2>
+<a id="af908548c13491d1a49102e91b4ba9e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af908548c13491d1a49102e91b4ba9e8e">&#9670;&nbsp;</a></span>getversion()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,17 +342,25 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">Stream &amp;&#160;</td>
           <td class="paramname"><em>stream</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Implements the getversion command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>where the output is written. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00180">180</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a3431aaee9f77adc1f826642b9f437609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3431aaee9f77adc1f826642b9f437609">&#9670;&nbsp;</a></span>initLed()</h2>
+<a id="a312bfe25ae017bc7b7f96d932ff0b6fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a312bfe25ae017bc7b7f96d932ff0b6fd">&#9670;&nbsp;</a></span>initLed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +373,7 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>pin</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -330,8 +387,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8c98ef71e572591b6369bc58a80c05e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c98ef71e572591b6369bc58a80c05e8">&#9670;&nbsp;</a></span>processCommand()</h2>
+<a id="a694156b1b8d1a10974418c7beed9cd9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694156b1b8d1a10974418c7beed9cd9d">&#9670;&nbsp;</a></span>processCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +411,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -364,14 +421,23 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classGlobalCovfefeLearner.html#aba2050d83ce300281ff59832cdd689c4">GlobalCovfefeLearner</a>.</p>
+<p>Processes one command from the supplied Stream argument. </p>
+<p>To be overridden in derived classes that are implementing more commands. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>where possible output is written. </td></tr>
+    <tr><td class="paramname">buf</td><td>Command line, to be interpreted. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classGlobalCovfefeLearner.html#af5c44a760fae1b3c7729a874274251fb">GlobalCovfefeLearner</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00121">121</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a5852c33001fd8a9b7456649010ab21d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5852c33001fd8a9b7456649010ab21d2">&#9670;&nbsp;</a></span>readProcessCommand()</h2>
+<a id="a41a4decc94c161b44104f31a5aab3684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a4decc94c161b44104f31a5aab3684">&#9670;&nbsp;</a></span>readProcessCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,17 +447,25 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">Stream &amp;&#160;</td>
           <td class="paramname"><em>stream</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads and processes one command from the supplied Stream argument. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>where the output is written. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00104">104</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a7917236477c7890f0d7b54541ac931c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7917236477c7890f0d7b54541ac931c7">&#9670;&nbsp;</a></span>sendir()</h2>
+<a id="ad4f6fa893a5a220ebe57dc8c38314951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4f6fa893a5a220ebe57dc8c38314951">&#9670;&nbsp;</a></span>sendir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,17 +485,26 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Implements the sendir command. </p>
+<p>The command line, by writing on the supplied argument. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>where the output (completeir) is written. </td></tr>
+    <tr><td class="paramname">buf</td><td>Supposed to hold the complete command line. Is destroyed, thereby not const. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00150">150</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ad10be92b5acebf986e102a6d00aa5b54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad10be92b5acebf986e102a6d00aa5b54">&#9670;&nbsp;</a></span>turnOffLed()</h2>
+<a id="a7e50dc47e3e57878480454c4952e5b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e50dc47e3e57878480454c4952e5b74">&#9670;&nbsp;</a></span>turnOffLed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +517,7 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>pin</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -448,8 +531,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae0f036c848375d3bfd0de76df52599a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0f036c848375d3bfd0de76df52599a4">&#9670;&nbsp;</a></span>turnOnLed()</h2>
+<a id="a2d7e9a27a835465ca6b3575f6ef5eedb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7e9a27a835465ca6b3575f6ef5eedb">&#9670;&nbsp;</a></span>turnOnLed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,7 +545,7 @@ Protected Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>pin</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -476,8 +559,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6a62d6b47f82b4f0c93f3f4fdf3a5562"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a62d6b47f82b4f0c93f3f4fdf3a5562">&#9670;&nbsp;</a></span>turnOnOffLed()</h2>
+<a id="adfbc918dbff3ffd68bb471873052714b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfbc918dbff3ffd68bb471873052714b">&#9670;&nbsp;</a></span>turnOnOffLed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -500,7 +583,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -509,6 +592,15 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Turns on the pin as the first argument, waits delay milli seconds, then turns off the pin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td></td></tr>
+    <tr><td class="paramname">delay</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8cpp_source.html#l00089">89</a> of file <a class="el" href="GlobalCovfefe_8cpp_source.html">GlobalCovfefe.cpp</a>.</p>
 
@@ -535,7 +627,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00057">57</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00098">98</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -559,7 +651,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00059">59</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00100">100</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -585,7 +677,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Max length on input line. </p>
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00055">55</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00096">96</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -612,7 +704,7 @@ Protected Member Functions</h2></td></tr>
 <p>GlobalCache uses CR as line terminator. </p>
 <p>Period. </p>
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00048">48</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00089">89</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -636,7 +728,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00050">50</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00091">91</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -660,9 +752,9 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Standard TCP command port. </p>
+<p>The GlobalCache standard TCP command port. </p>
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00043">43</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00084">84</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -676,7 +768,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * GlobalCovfefe::version = VERSION</td>
+          <td class="memname">const char * GlobalCovfefe::version = <a class="el" href="version_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">VERSION</a></td>
         </tr>
       </table>
   </td>
@@ -688,7 +780,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Version of the present program. </p>
 
-<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00038">38</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GlobalCovfefe_8h_source.html#l00079">79</a> of file <a class="el" href="GlobalCovfefe_8h_source.html">GlobalCovfefe.h</a>.</p>
 
 </div>
 </div>
@@ -699,7 +791,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 17 2018 21:05:18 for GlobalCovfefe by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 18 2018 13:56:16 for GlobalCovfefe by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>
