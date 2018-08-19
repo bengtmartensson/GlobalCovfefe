@@ -29,6 +29,7 @@ public:
     /**
      * Main constructor.
      * @param irSender Pointer to an IrSender from Infrared4Arduino.
+     * @param irReader Pointer to an IrReader from Infrared4Arduino.
      * @param commandLed Pin number of command LED, if present.
      * @param learnLed Pin number of learn LED, if present.
      * @param transmitLed Pin number of transmit LED, if present.
@@ -47,7 +48,7 @@ public:
 
     /**
      * Invoke the configured learner, and deliver the result in sendir format.
-     * @param stream where the output (in sendir format) is written
+     * @param stream where the output (in sendir format) is written.
      */
     void getIRL(Stream &stream) const;
 
