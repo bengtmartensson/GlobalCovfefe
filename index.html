@@ -71,7 +71,11 @@ $(function() {
 <p>The TCP API is described <a href="https://www.globalcache.com/files/releases/flex-16/API-Flex_TCP_1.6.pdf">here</a>.</p>
 <p>The program/library was written from scratch by myself. It is licensed under the GNU Public License version 2 or later.</p>
 <h2>Software architecture</h2>
-<p>There is a class <code><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a></code> and a derived class <code><a class="el" href="classGlobalCovfefeLearner.html" title="This class is derived from GlobalCovfefe, and adds the get_IRL command, invoking a learner...">GlobalCovfefeLearner</a></code> contained in the <code>src</code> directory. These classes operates on a <a href="https://www.arduino.cc/reference/en/language/functions/communication/stream/">Stream</a>. This is typically, but not necessarily, an <a href="https://www.arduino.cc/en/Reference/ClientConstructor"><code>EthernetClient</code></a> instance. The "example" <code>GlobalCovfefe.ino</code> contains the "application". It controls the Ethernet connections, and delivers it, as a <code>Stream</code> to an instance of the class <code><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a></code>.</p>
+<p>There is a class <code><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a></code> and a derived class <code><a class="el" href="classGlobalCovfefeLearner.html" title="This class is derived from GlobalCovfefe, and adds the get_IRL command, invoking a learner...">GlobalCovfefeLearner</a></code> contained in the <code>src</code> directory. These classes operates on a <a href="https://www.arduino.cc/reference/en/language/functions/communication/stream/">Stream</a>. This is typically, but not necessarily, an <a href="https://www.arduino.cc/en/Reference/ClientConstructor"><code>EthernetClient</code></a> instance.</p>
+<h3>Example <code><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a></code></h3>
+<p>The "example" <code><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a></code> contains the deployment program. It controls the Ethernet connections, and delivers it, as a <code>Stream</code> to an instance of the class <code><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a>[Learner]</code>.</p>
+<h3>Example SerialCovfefe</h3>
+<p>The example <code>SerialCovfefe</code>, however, uses only <code>Serial</code>, and can be used for testing or debugging the library.</p>
 <h3>Single-threaded operation</h3>
 <p>Most important difference from the GlobalCache devices is that the current program is single-threaded. That is, it accepts one command, executes it, and only when it is finished (or times out), the program listens for new commands. Thereby, commands like <code>stopir</code> are not meaningful, and not implemented.</p>
 <h4>Only one concurrent TCP session</h4>
@@ -81,7 +85,7 @@ $(function() {
 <li><code>getversion</code>: Returns the version of the current program, identical to the version in the library manager.</li>
 <li><code>getdevices</code>: Returns the configured devices in a machine parseable way.</li>
 <li><code>blink</code>: Blinks the configured LEDs.</li>
-<li><code>sendir</code>: sends a (raw) IR command. Compressed commands are not implemented (<a href="https://github.com/bengtmartensson/GlobalCovfefe/issues/7">yet</a>).</li>
+<li><code>sendir</code>: sends a (raw) IR command. Compressed commands are not implemented (<a href="https://github.com/bengtmartensson/GlobalCovfefe/issues/7">but planned</a>).</li>
 <li><code>get_IRL</code>: reads an IR signal and returns it (Only if a learner has been configured.)</li>
 </ul>
 <p>Expected responses are produced. Error handling and sensibility checking of the provided arguments are essentially non-existent.</p>
@@ -98,6 +102,8 @@ $(function() {
 <h2>Configuration</h2>
 <p>The GlobalCache hardware is extensively configurable, both using the TCP commands, as well as using the built-in HTTP-server. This program is instead configured during compilation, using CPP defines in the file <code>config.h</code>. These are described in that file.</p>
 <p>For the configuration of the IrSender and, optionally, the learner, see the documenation of Infrared4Arduino.</p>
+<h3>Signaling LEDs</h3>
+<p>The library supports up to three LEDs, indicating the present operating mode. These are defined in <code>config.h</code> by assigning pin numbers (denoting pins that make "something" light up when make high) to CPP symobls. This is highly recommended for problem solving and debugging.</p>
 <h2>Modules</h2>
 <p>GlobalCache devices advertise their configuration with the <code>getdevices</code> command. This is used here too.</p>
 <h3>IR module</h3>
@@ -109,17 +115,17 @@ $(function() {
 <h3>Serial module</h3>
 <p>Due to the single-threaded architecture, implementing a serial module, as in the original hardware, is not possible.</p>
 <h2>Porting</h2>
-<p><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a> as such is a portable program, not a program that needs porting. There are no other "dependencies" than a certain resource consumption. However, Infrared4Arduino (which is the low-level library that this one builds upon) only runs on some hardware. Porting it to more hardware platforms is desirable and planned. Help is solicited.</p>
+<p><a class="el" href="classGlobalCovfefe.html" title="This class emulates the IR sending of a GlobalCache device. ">GlobalCovfefe</a> as such is a portable program, not a program that needs porting. There are no other "dependencies" than a certain resource consumption. Resources are allocated only indirectly. through the used libraries. However, Infrared4Arduino (which is the low-level library that this one builds upon) only runs on some hardware, and does allocate some resources like timers and interrupts. Porting it it to more hardware platforms is desirable and planned. Help is solicited.</p>
 <h2>API documentation</h2>
 <p>API documentation for the classes in the library are generated by <a href="http://www.doxygen.org">Doxygen</a>. This available online <a href="https://bengtmartensson.github.io/GlobalCovfefe/">here</a>. The "application" in the example is not documented in this way.</p>
 <h2>Use with IrScrutinizer</h2>
-<p>Unfortunately, the restriction of only one session can cause somewhat unexpected behavior in <a href="https://github.com/bengtmartensson/harctoolbox">IrScrutinizer</a>. If opened for sending (using the "Sending hw" pane), the connection has to be closed before opening for capturing (the "Capturing hw" pane) &ndash; and similarly for going from capturing to transmitting.</p>
+<p>Unfortunately, the restriction of only one session can cause somewhat unexpected behavior in <a href="https://github.com/bengtmartensson/harctoolbox">IrScrutinizer</a>. If opened for sending (using the "Sending hw" pane), the connection has to be closed before opening for capturing (the "Capturing hw" pane) &ndash; and similarly for going from capturing to transmitting. Unfortunately, in the present IrScrutinizer there is no possibility to force a GlobalCache connection to close, except for opening a connection with another GlobalCache device, which is of course not possible if only one is present... (<a href="https://github.com/bengtmartensson/harctoolboxbundle/issues/246">IrScrutinizer issue</a>) Workaround: reset the Arduino to close the connection.</p>
 <h2>Support and feedback</h2>
 <p>Bug reports, improvements requests etc. are solicited and can be directed to <a href="https://github.com/bengtmartensson/GlobalCovfefe/issues">GitHub issues</a>. General discussion etc can be directed to the <a href="https://forum.arduino.cc/index.php?board=16.0">Arduino Home Automation section and Networked Objects</a> forum. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 18 2018 13:56:16 for GlobalCovfefe by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 19 2018 13:41:34 for GlobalCovfefe by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>
