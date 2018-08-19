@@ -32,8 +32,14 @@ contained in the `src` directory. These classes operates
 on a [Stream](https://www.arduino.cc/reference/en/language/functions/communication/stream/).
 This is typically, but not necessarily,
 an [`EthernetClient`](https://www.arduino.cc/en/Reference/ClientConstructor) instance.
-The "example" `GlobalCovfefe.ino` contains the "application". It controls the
-Ethernet connections, and delivers it, as a `Stream` to an instance of the class `GlobalCovfefe`.
+
+### Example `GlobalCovfefe`
+The "example" `GlobalCovfefe` contains the deployment program. It controls the
+Ethernet connections, and delivers it, as a `Stream` to an instance of the class `GlobalCovfefe[Learner]`.
+
+### Example SerialCovfefe
+The example `SerialCovfefe`, however, uses only `Serial`, and can be used for
+testing or debugging the library.
 
 ### Single-threaded operation
 Most important difference from the GlobalCache devices
@@ -52,7 +58,7 @@ open connection () quite useful.)
 * `getversion`: Returns the version of the current program, identical to the version in the library manager.
 * `getdevices`: Returns the configured devices in a machine parseable  way.
 * `blink`: Blinks the configured LEDs.
-* `sendir`: sends a (raw) IR command. Compressed commands are not implemented ([yet](https://github.com/bengtmartensson/GlobalCovfefe/issues/7)).
+* `sendir`: sends a (raw) IR command. Compressed commands are not implemented ([but planned](https://github.com/bengtmartensson/GlobalCovfefe/issues/7)).
 * `get_IRL`: reads an IR signal and returns it (Only if a learner has been configured.)
 
 Expected responses are produced.
@@ -80,6 +86,12 @@ during compilation, using CPP defines in the file `config.h`. These are describe
 For the configuration of the IrSender and, optionally, the learner, see the
 documenation of Infrared4Arduino.
 
+### Signaling LEDs
+The library supports up to three LEDs, indicating the present operating mode.
+These are defined in `config.h` by assigning pin numbers (denoting pins that make
+"something" light up when make high) to CPP symobls. This is highly recommended
+for problem solving and debugging.
+
 ## Modules
 
 GlobalCache devices advertise their configuration with the `getdevices` command.
@@ -103,9 +115,11 @@ a serial module, as in the original hardware, is not possible.
 ## Porting
 GlobalCovfefe as such is a portable program, not a program that needs porting.
 There are no other "dependencies" than a certain resource consumption.
+Resources are allocated only indirectly. through the used libraries.
 However, Infrared4Arduino (which is the low-level library that this one builds upon)
 only runs
-on some hardware. Porting it to more hardware platforms is desirable and planned.
+on some hardware, and does allocate some resources like timers and interrupts.
+Porting it it to more hardware platforms is desirable and planned.
 Help is solicited.
 
 ## API documentation
@@ -119,6 +133,11 @@ behavior in [IrScrutinizer](https://github.com/bengtmartensson/harctoolbox).
 If opened for sending (using the "Sending hw" pane), the connection has to be
 closed before opening for capturing (the "Capturing hw" pane) --
 and similarly for going from capturing to transmitting.
+Unfortunately, in the present IrScrutinizer there is no possibility to force
+a GlobalCache connection to close, except for opening a connection with another
+GlobalCache device, which is of course not possible if only one is present...
+([IrScrutinizer issue](https://github.com/bengtmartensson/harctoolboxbundle/issues/246))
+Workaround: reset the Arduino to close the connection.
 
 ## Support and feedback
 Bug reports, improvements requests etc. are solicited and can be directed to
