@@ -31,7 +31,7 @@ src/version/version.h: library.properties
 doc: api-doc/index.html
 	$(BROWSER) $<
 
-api-doc/index.html xml/index.xml: $(wildcard src/*)
+api-doc/index.html xml/index.xml: $(wildcard src/* src/*/*) README.md
 	$(DOXYGEN) $(DOXYFILE)
 
 gh-pages: api-doc/index.html
