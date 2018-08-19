@@ -32,7 +32,7 @@ doc: api-doc/index.html
 	$(BROWSER) $<
 
 api-doc/index.html xml/index.xml: $(wildcard src/* src/*/*) README.md
-	$(DOXYGEN) $(DOXYFILE)
+	$(DOXYGEN) $(DOXYFILE) > /dev/null
 
 gh-pages: api-doc/index.html
 	rm -rf gh-pages
