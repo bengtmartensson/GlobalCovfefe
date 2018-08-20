@@ -24,9 +24,13 @@ ORIGINURL=$(shell git remote get-url origin)
 
 default: all
 
-src/version/version.h: library.properties
-	echo "// This file was automatically generated from $<; do not edit." >  $@
-	echo "#define VERSION \"$(VERSION)\""  >> $@
+src/version/version.h: library.properties Makefile
+	echo "// This file was automatically generated from $<; do not edit." > $@
+	echo "/**"                                                           >> $@
+	echo " * Version of the current library."                            >> $@
+	echo " * Taken from the version in $<."                              >> $@
+	echo " */"                                                           >> $@
+	echo "#define VERSION \"$(VERSION)\""                                >> $@
 
 doc: api-doc/index.html
 	$(BROWSER) $<
