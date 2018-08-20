@@ -47,6 +47,12 @@ gh-pages: api-doc/index.html
 	(cd gh-pages; git commit -a -m "Update of API documentation for version $(VERSION)")
 	@echo Now perform \"git push\" from gh-pages
 
+tag:
+	git checkout master
+	git status
+	git tag -a Version-$(VERSION) -m "Tagging Version-$(VERSION)"
+	git push origin Version-$(VERSION)
+
 clean:
 	rm -rf *.a *.o api-doc xml gh-pages
 
