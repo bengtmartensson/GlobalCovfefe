@@ -23,12 +23,7 @@ this program. If not, see http://www.gnu.org/licenses/.
 #include <GlobalCovfefe.h>
 #endif
 
-#if defined(ETHERNET_REVISION) & (ETHERNET_REVISION == 2)
-#include <Ethernet2.h>
-#else
 #include <Ethernet.h>
-#endif
-
 #include <IPAddress.h>
 
 #include <IrSenderPwm.h>
