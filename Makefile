@@ -15,7 +15,6 @@ DOXYGEN := doxygen
 DOXYFILE := Doxyfile
 XSLTPROC := xsltproc
 TRANSFORMATION := $(KEYWORD_TXT_GENERATOR_DIR)/doxygen2keywords.xsl
-
 BROWSER=firefox
 
 # Get VERSION from the version in library.properties
@@ -24,7 +23,11 @@ ORIGINURL=$(shell git remote get-url origin)
 
 default: all
 
-src/version/version.h: library.properties Makefile
+VERSION_H := src/version/version.h
+
+version: $(VERSION_H)
+
+$(VERSION_H): library.properties Makefile
 	echo "// This file was automatically generated from $<; do not edit." > $@
 	echo "/**"                                                           >> $@
 	echo " * Version of the current library."                            >> $@
@@ -56,12 +59,15 @@ tag:
 clean:
 	rm -rf *.a *.o api-doc xml gh-pages
 
+# Remove all products. Do not use before commit.
 spotless: clean
-	rm -f keywords.txt src/version/version.h
+	rm -f keywords.txt $(VERSION_H)
+
+keywords: keywords.txt
 
 keywords.txt: xml/index.xml
-	$(XSLTPROC) $(TRANSFORMATION) $< > $@
+	$(XSLTPROC) $(TRANSFORMATION) $< | uniq > $@
 
-all: api-doc/index.html keywords.txt src/version/version.h
+all: version keywords api-doc/index.html
 
 .PHONY: clean spotless all default
